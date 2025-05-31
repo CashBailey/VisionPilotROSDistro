@@ -1,0 +1,15 @@
+material text/robot
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Robot.png
+      }
+    }
+  }
+}
+

@@ -1,0 +1,36 @@
+Instructions
+
+Prerrequisites
+
+1. Install PX4-Autopilot
+
+https://docs.px4.io/main/en/ros/mavros_installation.html
+
+2. Add office.world to:
+
+ /home/user_name/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/
+
+3. Add the contents of the models folder to the following path:
+
+/home/user_name/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/
+
+4. add the contents of the launch folder to:
+
+/home/user_name/PX4-Autopilot/launch/
+
+
+Ejecution
+
+2. Open a second terminal:
+
+source devel/setup.bash
+source ~/PX4-Autopilot/Tools/simulation/gazebo-classic/setup_gazebo.bash ~/PX4-Autopilot ~/PX4-Autopilot/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic
+export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins
+
+3. Run the launch file
+
+roslaunch offboard start_offb.launch
+
+

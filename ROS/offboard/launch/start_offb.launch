@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- Include the MAVROS node with SITL and Gazebo -->
+	<include file="$(find px4)/launch/mavros_posix_sitl.launch">
+	</include>
+
+	<!-- Our node to control the drone -->
+		
+
+	<node pkg="offboard" type="offb_node" name="offb_node" required="true" output="screen" /> 
+
+        <!-- Our node of visual servoing to the drone -->
+	<arg name="topic_name" default="/iris/usb_cam/image_raw"/>
+	<arg name="lambda_v" default="0.1"/>
+	<arg name="lambda_w" default="0.1"/>
+	
+	
+	<node pkg="offboard" type="pbvs_node" name="pbvs_node" required="true" output="screen" args="$(arg topic_name) $(arg lambda_v) $(arg lambda_w)" /> 
+	
+	
+	
+</launch>

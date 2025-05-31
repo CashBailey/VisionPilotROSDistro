@@ -1,0 +1,15 @@
+material text/walle
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture walle.jpg
+      }
+    }
+  }
+}
+

@@ -1,0 +1,497 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>1</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.81</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='default'>
+      <sim_time>17 736000000</sim_time>
+      <real_time>17 854321421</real_time>
+      <wall_time>1722981010 55103620</wall_time>
+      <iterations>17736</iterations>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>5 -5 2 0 0.275643 2.35619</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
+    <model name="wall_1_model">
+      <pose>0 -5 1 0 0 0</pose>
+      <static>true</static>
+      <link name="wall_1_body">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>1.0</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>1.0</iyy>
+            <iyz>0.0</iyz>
+            <izz>1.0</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 0.2 4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>10 0.2 4</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_2_model">
+      <pose>0 10 1 0 0 0</pose>
+      <static>true</static>
+      <link name="wall_2_body">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>1.0</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>1.0</iyy>
+            <iyz>0.0</iyz>
+            <izz>1.0</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 0.2 4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>10 0.2 4</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_3_model">
+      <pose>-5 2.5 1 0 0 0</pose>
+      <static>true</static>
+      <link name="wall_3_body">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>1.0</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>1.0</iyy>
+            <iyz>0.0</iyz>
+            <izz>1.0</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 15 4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 15 4</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_4_model">
+      <pose>5 2.5 1 0 0 0</pose>
+      <static>true</static>
+      <link name="wall_4_body">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>1.0</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>1.0</iyy>
+            <iyz>0.0</iyz>
+            <izz>1.0</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 15 4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 15 4</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_5_model">
+      <pose>-2 5 1 0 0 0</pose>
+      <static>true</static>
+      <link name="wall_5_body">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>1.0</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>1.0</iyy>
+            <iyz>0.0</iyz>
+            <izz>1.0</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>6 0.2 4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>6 0.2 4</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_6_model">
+      <pose>3.5 5 1 0 0 0</pose>
+      <static>true</static>
+      <link name="wall_6_body">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>1.0</ixx>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyy>1.0</iyy>
+            <iyz>0.0</iyz>
+            <izz>1.0</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>3 0.2 4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3 0.2 4</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    
+    <!-- Add a poster -->
+    <include>
+      <uri>model://pal_poster</uri>
+      <pose>-0.78 4.83 1.2 0 0 -1.57</pose>
+    </include>
+
+    <!-- Add a REEM poster -->
+    <include>
+      <uri>model://wall_with_reem_photo</uri>
+      <pose>-0.1224 -4.90869 0 1e-06 -6e-06 -1.60377</pose>
+    </include>
+
+    <!-- Add a sofa -->
+    <include>
+      <uri>model://sofa</uri>
+      <name>sofa_0</name>
+      <pose>-1.633 4.207 0.000000 0.000000 0.000000 0.000000</pose>
+    </include>
+    
+	 <include>
+	   <uri>model://sofa</uri>
+	   <name>sofa_1</name> <!-- Nombre único para el primer sofá -->
+	   <pose>-4.038 -1.594 0.000000 0.000000 0.000000 1.568</pose>
+	 </include>
+    
+    <!-- Add a cuadro_camara -->
+    <include>
+      <uri>model://cuadro_camara</uri>
+      <pose>-4.134 -4.917 0.4 0.000000 0.000000 0.000000</pose>
+    </include>
+    
+    <!-- Add a cuadro_pajaro -->
+    <include>
+      <uri>model://cuadro_pajaro</uri>
+      <pose>-2.85 -4.92 0.15 0.000000 0.000000 0.000000</pose>
+    </include>
+    
+    <!-- Add a cuadro_edificio -->
+    <include>
+      <uri>model://cuadro_edificio</uri>
+      <pose>-4.88 1.098 0.51 0.000000 0.000000 -1.55</pose>
+    </include>
+    
+    <!-- Add a cuadro_perro -->
+    <include>
+      <uri>model://cuadro_perro</uri>
+      <pose>2.7851 4.881 0.4 0.000000 0.000000 0.00</pose>
+    </include>
+    
+   <!-- Add a cuadro_semaforo -->
+    <include>
+      <uri>model://cuadro_semaforo</uri>
+      <pose>4.12 4.881 0.15 0.000000 0.000000 0.00</pose>
+    </include>
+    
+    
+    <!-- Add a cuadro_radio -->
+    <include>
+      <uri>model://cuadro_radio</uri>
+      <pose>2.698 -4.8136 0.15 0.000000 0.000000 0.00</pose>
+    </include>
+    
+    <!-- Add a cuadro_robot -->
+    <include>
+      <uri>model://cuadro_robot</uri>
+      <pose>4.15 -4.8136 0.4 0.000000 0.000000 0.00</pose>
+    </include>
+    
+    <!-- Add a cuadro_walle -->
+    <include>
+      <uri>model://cuadro_walle</uri>
+      <pose>4.84 3.8254 0.4 0.000000 0.000000 -1.5808</pose>
+    </include>
+    
+    
+    <!-- Add box -->
+    <include>
+    	<name>box_0</name>
+      <uri>model://box</uri>
+      <pose>-4.92 -4.0 1.25 0.000000 0.000000 0.000000</pose>
+    </include>
+    
+	 <include>
+	   <uri>model://box</uri>
+	   <name>box_1</name> <!-- Nombre único para el primer sofá -->
+	   <pose>-4.92 -3.5 1.0000 0.000000 0.000000 0.00</pose>
+	 </include>
+	 
+	 <include>
+	   <uri>model://box</uri>
+	   <name>box_2</name> <!-- Nombre único para el primer sofá -->
+	   <pose>-4.93 -3.0 0.750000 0.000000 0.000000 0.00</pose>
+	 </include>
+	 
+	 <include>
+	   <uri>model://box</uri>
+	   <name>box_3</name> <!-- Nombre único para el primer sofá -->
+	   <pose>4.94 2.11 1.32000 0.000000 0.000000 0.00</pose>
+	 </include>
+    
+	 <include>
+	   <uri>model://box</uri>
+	   <name>box_4</name> <!-- Nombre único para el primer sofá -->
+	   <pose>4.94 2.77 0.66000 0.000000 0.000000 0.00</pose>
+	 </include>
+    
+    <!-- Add an aruco board -->
+    <include>
+      <uri>model://aruco_board</uri>
+      <pose>-4.85 -0.86 1.35 0 0 0</pose>
+    </include>
+
+    <!-- Add a floor lamp -->
+    <include>
+      <name>floor_lamp_0</name>
+      <uri>model://floor_lamp</uri>
+      <pose>-4.630000 -2.30 0.000000 0.000000 0.000000 1.192</pose>
+    </include>
+
+    <include>
+      <name>floor_lamp_1</name>
+      <uri>model://floor_lamp</uri>
+      <pose>-4.550000 2.43000 0.000000 0.000000 0.000000 1.192</pose>
+    </include>
+    
+    <include>
+      <name>floor_lamp_2</name>
+      <uri>model://floor_lamp</uri>
+      <pose>-2.550000 4.53000 0.000000 0.000000 0.000000 0.0</pose>
+    </include>
+    
+    <!-- Add ikea_ektorp_chair -->
+    <include>
+      <name>ikea_0</name>
+      <uri>model://ikea_ektorp_chair</uri>
+      <pose>-4.4 3.36 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <name>ikea_1</name>
+      <uri>model://ikea_ektorp_chair</uri>
+      <pose>-4.449 4.27 0 0 0 0</pose>
+    </include>
+    
+    <!-- Add yolo -->
+    <include>
+      <name>yolo_0</name>
+      <uri>model://yolo</uri>
+      <pose>-4.8 3.36 1.35 0 0 0</pose>
+    </include>
+    
+    <include>
+      <name>yolo_1</name>
+      <uri>model://yolo</uri>
+      <pose>4.868 -3.551 1.35 0 0 0</pose>
+    </include>
+    
+    <!-- Add kitchen_table -->
+    <include>
+      <name>kitchen_table_0</name>
+      <uri>model://kitchen_table</uri>
+      <pose>-5.002 0.3705 -0.255 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>kitchen_table_1</name>
+      <uri>model://kitchen_table</uri>
+      <pose>4.037 -4.2409 -0.0 0 0 0</pose>
+    </include>
+    
+    <!-- Add an tv set -->
+    <include>
+      <uri>model://tv_set</uri>
+      <pose>4.15 -0.0086 0.0 0 0 1.5733</pose>
+    </include>
+    
+    <!-- Add an pal textures -->
+    <include>
+      <uri>model://pal_textured_object</uri>
+      <pose>-3.111 4.86 1.11 0 0 0.0</pose>
+    </include>
+
+    <!-- Change the gazebo camera point of view -->
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose>0.685291 2.730300 18.477800 0.000000 1.529800 -3.138990</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+  </world>
+</sdf>
+
+

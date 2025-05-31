@@ -1,0 +1,15 @@
+material text/perro
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture perro.jpg
+      }
+    }
+  }
+}
+

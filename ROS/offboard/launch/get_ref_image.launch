@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- Include the MAVROS node with SITL and Gazebo -->
+	<include file="$(find px4)/launch/mavros_posix_sitl.launch">
+	</include>
+
+	<!-- Our node to control the drone -->
+		
+	<!--
+	<node pkg="ibvs" type="hv" name="hv" required="true" output="screen" />  
+	<node pkg="ibvs" type="hc" name="hc" required="true" output="screen" /> 
+	-->
+
+	<node pkg="offboard" type="offb_node" name="offb_node" required="true" output="screen" /> 
+	<node pkg="offboard" name="save_image_listener" type="save_image_listener" output="screen" args="$(arg topic_name)"  />
+	<!-- <node pkg="offboard_py" type="offb_node.py" name="offb_node_py" required="true" output="screen" /> 
+	<node pkg="offboard_py" type="offb_posvel.py" name="offb_posvel_py" required="true" output="screen" />
+	-->
+</launch>
