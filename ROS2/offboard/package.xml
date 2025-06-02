@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>ros2_offboard</name>
+  <version>0.0.0</version>
+  <description>ROS2 port of offboard pbvs node</description>
+  <maintainer email="unknown@example.com">auto-generated</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>ament_python</buildtool_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>mavros_msgs</exec_depend>
+</package>
