@@ -10,7 +10,6 @@ setup(
     packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages', [f'resource/{package_name}']),
-        (f'share/{package_name}', ['package.xml'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -21,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'pbvs_node = ros2_offboard.pbvs_node:main'
+
         ],
     },
 )
